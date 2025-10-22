@@ -25,7 +25,7 @@ export default function Home() {
         {/* Header with Logos - Luxury Style */}
         <header className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8">
-            {/* Rotaract 3181 Logo - Classy Frame */}
+            {/* Rotaract 3181 Logo - Classy Frame (Rectangle) */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/30 to-yellow-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative bg-gradient-to-br from-gray-900 to-black p-1 rounded-2xl">
@@ -33,15 +33,15 @@ export default function Home() {
                   <Image 
                     src="/logos/rotaract-3181-logo.png" 
                     alt="Rotaract District 3181" 
-                    width={80} 
+                    width={120} 
                     height={80}
-                    className="object-contain w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
+                    className="object-contain w-24 h-16 sm:w-32 sm:h-20 lg:w-40 lg:h-24"
                   />
                 </div>
               </div>
             </div>
             
-            {/* Event Logo - Classy Frame */}
+            {/* Event Logo - Classy Frame (Rectangle) */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/30 to-yellow-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative bg-gradient-to-br from-gray-900 to-black p-1 rounded-2xl">
@@ -49,9 +49,9 @@ export default function Home() {
                   <Image 
                     src="/logos/sneha-sourabha-logo.jpeg" 
                     alt="Sneha Sourabha 2025-26" 
-                    width={80} 
+                    width={120} 
                     height={80}
-                    className="object-contain w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
+                    className="object-contain w-24 h-16 sm:w-32 sm:h-20 lg:w-40 lg:h-24"
                   />
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function Home() {
           {/* Subtitle Badge - Minimal & Elegant */}
           <div className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 px-6 sm:px-8 py-2 sm:py-3 rounded-full border border-gray-700 mb-4 sm:mb-6 animate-slide-down">
             <p className="text-gray-300 font-medium text-xs sm:text-sm lg:text-base tracking-wider uppercase">
-              Rotary District 3181 Conference
+              Rotary District Conference
             </p>
           </div>
         </header>
@@ -88,10 +88,15 @@ export default function Home() {
             
             <div className="group relative w-full sm:w-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-yellow-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative flex items-center justify-center sm:justify-start gap-3 bg-gradient-to-br from-gray-900 to-black px-5 sm:px-6 py-3 sm:py-4 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform duration-300">
+              <a 
+                href="https://maps.app.goo.gl/y8xdiWCaKbsANWtc8" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="relative flex items-center justify-center sm:justify-start gap-3 bg-gradient-to-br from-gray-900 to-black px-5 sm:px-6 py-3 sm:py-4 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform duration-300"
+              >
                 <MapPin className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                 <span className="font-medium text-gray-200 text-sm sm:text-base">Silent Shores, Mysore</span>
-              </div>
+              </a>
             </div>
           </div>
 
