@@ -2,6 +2,7 @@ import { sql } from '@vercel/postgres';
 
 export interface Registration {
   id?: number;
+  registration_number?: string;
   name: string;
   email: string;
   mobile: string;
@@ -33,6 +34,7 @@ export async function initializeDatabase() {
     await sql`
       CREATE TABLE IF NOT EXISTS registrations (
         id SERIAL PRIMARY KEY,
+        registration_number VARCHAR(20) UNIQUE,
         name VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL,
         mobile VARCHAR(15) NOT NULL,
@@ -57,6 +59,7 @@ export async function initializeDatabase() {
     `;
 
     // Create indexes
+    await sql`CREATE INDEX IF NOT EXISTS idx_registrations_number ON registrations(registration_number)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_registrations_email ON registrations(email)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_registrations_mobile ON registrations(mobile)`;
     await sql`CREATE INDEX IF NOT EXISTS idx_registrations_club ON registrations(club)`;
@@ -73,17 +76,39 @@ export async function initializeDatabase() {
 }
 
 /**
+ * Generate unique registration number
+ */
+async function generateRegistrationNumber(): Promise<string> {
+  try {
+    // Get the count of existing registrations
+    const result = await sql`SELECT COUNT(*) as count FROM registrations`;
+    const count = parseInt(result.rows[0].count) + 1;
+    
+    // Format: SS2026-00001
+    const registrationNumber = `SS2026-${count.toString().padStart(5, '0')}`;
+    return registrationNumber;
+  } catch (error) {
+    console.error('Error generating registration number:', error);
+    // Fallback to timestamp-based number
+    return `SS2026-${Date.now().toString().slice(-5)}`;
+  }
+}
+
+/**
  * Create a new registration
  */
 export async function createRegistration(data: Registration) {
   try {
+    // Generate registration number
+    const registration_number = await generateRegistrationNumber();
+    
     const result = await sql`
       INSERT INTO registrations (
-        name, email, mobile, club, registration_type, registration_amount,
+        registration_number, name, email, mobile, club, registration_type, registration_amount,
         meal_preference, spouse_name, children_count, upi_transaction_id, upi_id,
         payment_status, registration_status
       ) VALUES (
-        ${data.name}, ${data.email}, ${data.mobile}, ${data.club},
+        ${registration_number}, ${data.name}, ${data.email}, ${data.mobile}, ${data.club},
         ${data.registration_type}, ${data.registration_amount},
         ${data.meal_preference}, ${data.spouse_name || null}, ${data.children_count || 0},
         ${data.upi_transaction_id || null}, ${data.upi_id || null},
