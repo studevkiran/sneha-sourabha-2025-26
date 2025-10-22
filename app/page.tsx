@@ -119,18 +119,18 @@ export default function Home() {
         
         {/* Header with Logos - Responsive Luxury Style */}
   <header className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 animate-fade-in">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-5 sm:mb-7 md:mb-8">
+          <div className="flex flex-row items-center justify-center gap-3 sm:gap-6 md:gap-8 mb-5 sm:mb-7 md:mb-8">
             {/* Rotaract 3181 Logo - Premium Frame */}
             <div className="relative group">
               <div className="absolute inset-0 bg-white/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 p-[3px] sm:p-1 rounded-2xl ring-1 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
-                <div className="bg-white p-2 sm:p-3 md:p-4 rounded-xl shadow-lg shadow-black/10 transform group-hover:scale-105 transition-transform duration-300">
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 p-[2px] sm:p-1 rounded-2xl ring-1 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
+                <div className="bg-white p-1.5 sm:p-3 md:p-4 rounded-xl shadow-lg shadow-black/10 transform group-hover:scale-105 transition-transform duration-300">
                   <Image 
                     src="/logos/rotaract-3181-logo.png" 
                     alt="Rotaract District 3181" 
                     width={140} 
                     height={90}
-                    className="object-contain w-24 h-16 sm:w-32 sm:h-20 md:w-36 md:h-24 lg:w-40 lg:h-28"
+                    className="object-contain w-20 h-14 sm:w-32 sm:h-20 md:w-36 md:h-24 lg:w-40 lg:h-28"
                   />
                 </div>
               </div>
@@ -139,14 +139,14 @@ export default function Home() {
             {/* Event Logo - Premium Frame */}
             <div className="relative group">
               <div className="absolute inset-0 bg-white/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 p-[3px] sm:p-1 rounded-2xl ring-1 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
-                <div className="bg-white p-2 sm:p-3 md:p-4 rounded-xl shadow-lg shadow-black/10 transform group-hover:scale-105 transition-transform duration-300">
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 p-[2px] sm:p-1 rounded-2xl ring-1 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
+                <div className="bg-white p-1.5 sm:p-3 md:p-4 rounded-xl shadow-lg shadow-black/10 transform group-hover:scale-105 transition-transform duration-300">
                   <Image 
                     src="/logos/sneha-sourabha-logo.jpeg" 
                     alt="Sneha Sourabha 2025-26" 
                     width={140} 
                     height={90}
-                    className="object-contain w-24 h-16 sm:w-32 sm:h-20 md:w-36 md:h-24 lg:w-40 lg:h-28"
+                    className="object-contain w-20 h-14 sm:w-32 sm:h-20 md:w-36 md:h-24 lg:w-40 lg:h-28"
                   />
                 </div>
               </div>

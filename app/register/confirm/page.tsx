@@ -228,18 +228,18 @@ export default function ConfirmPage({
         ) : (
           // PAYMENT SUBMITTED - show final receipt
           <>
-            <div ref={receiptRef} className="bg-white rounded-2xl p-8 shadow-2xl">
+            <div ref={receiptRef} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl">
               {/* Header with Logos and Title */}
-              <div className="border-b-2 border-gray-800 pb-6 mb-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-4">
+              <div className="border-b-2 border-gray-800 pb-4 sm:pb-6 mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4">
                     {/* District Logo */}
                     <Image 
                       src="/logos/rotaract-3181-logo.png" 
                       alt="Rotaract District 3181" 
                       width={60} 
                       height={60}
-                      className="object-contain"
+                      className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
                     />
                     {/* Event Logo */}
                     <Image 
@@ -247,21 +247,21 @@ export default function ConfirmPage({
                       alt="Sneha Sourabha" 
                       width={60} 
                       height={60}
-                      className="object-contain rounded-lg"
+                      className="object-contain rounded-lg w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
                     />
                     <div>
-                      <h1 className="text-3xl font-extrabold text-gray-900 mb-1">Sneha Sourabha</h1>
-                      <p className="text-sm text-gray-600">District Conference 2025-26</p>
+                      <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">Sneha Sourabha</h1>
+                      <p className="text-xs sm:text-sm text-gray-600">District Conference 2025-26</p>
                     </div>
                   </div>
-                  <div className="text-right text-sm text-gray-600">
+                  <div className="text-left sm:text-right text-xs sm:text-sm text-gray-600 w-full sm:w-auto">
                     {registrationNumber && (
                       <div className="mb-2">
                         <div className="text-xs text-gray-500">Registration Number</div>
-                        <div className="font-mono font-bold text-lg text-gray-900">{registrationNumber}</div>
+                        <div className="font-mono font-bold text-base sm:text-lg text-gray-900">{registrationNumber}</div>
                       </div>
                     )}
-                    <div>Receipt ID: <span className="font-mono font-semibold text-gray-900">{txnId}</span></div>
+                    <div className="break-all sm:break-normal">Receipt ID: <span className="font-mono font-semibold text-gray-900">{txnId}</span></div>
                     <div className="mt-1">{downloadTime}</div>
                   </div>
                 </div>
@@ -276,33 +276,33 @@ export default function ConfirmPage({
               </div>
 
               {/* Registration Details */}
-              <div className="mb-6">
-                <h2 className="text-lg font-semibold text-gray-900 mb-3">Submitted Registration Details</h2>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="mb-4 sm:mb-6">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">Submitted Registration Details</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                   <div>
                     <div className="text-gray-600">Registration Type</div>
                     <div className="font-semibold text-gray-900">{option.label}</div>
                   </div>
                   <div>
                     <div className="text-gray-600">Registration Amount</div>
-                    <div className="font-semibold text-blue-700 text-lg">{inr.format(option.amount)}</div>
+                    <div className="font-semibold text-blue-700 text-base sm:text-lg">{inr.format(option.amount)}</div>
                     <div className="text-xs text-gray-500 mt-0.5">(Pending Verification)</div>
                   </div>
                   <div>
                     <div className="text-gray-600">Name</div>
-                    <div className="font-medium text-gray-900">{name}</div>
+                    <div className="font-medium text-gray-900 break-words">{name}</div>
                   </div>
                   <div>
                     <div className="text-gray-600">Mobile</div>
                     <div className="font-medium text-gray-900">{mobile}</div>
                   </div>
-                  <div>
+                  <div className="sm:col-span-2">
                     <div className="text-gray-600">Email</div>
-                    <div className="font-medium text-gray-900">{email}</div>
+                    <div className="font-medium text-gray-900 break-all">{email}</div>
                   </div>
                   <div>
                     <div className="text-gray-600">Club</div>
-                    <div className="font-medium text-gray-900">{club}</div>
+                    <div className="font-medium text-gray-900 break-words">{club}</div>
                   </div>
                   <div>
                     <div className="text-gray-600">Meal Preference</div>
@@ -311,7 +311,7 @@ export default function ConfirmPage({
                   {type === "rotarian_spouse" && spouseName && (
                     <div>
                       <div className="text-gray-600">Spouse Name</div>
-                      <div className="font-medium text-gray-900">{spouseName}</div>
+                      <div className="font-medium text-gray-900 break-words">{spouseName}</div>
                     </div>
                   )}
                   {type === "rotarian_spouse" && (
@@ -325,15 +325,15 @@ export default function ConfirmPage({
 
               {/* Payment Details */}
               <div className="border-t-2 border-gray-200 pt-4">
-                <h2 className="text-lg font-semibold text-gray-900 mb-3">Submitted Payment Information</h2>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">Submitted Payment Information</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                   <div>
                     <div className="text-gray-600">UPI Transaction ID (Submitted)</div>
-                    <div className="font-mono font-semibold text-gray-900">{upiTransactionId}</div>
+                    <div className="font-mono font-semibold text-gray-900 break-all">{upiTransactionId}</div>
                   </div>
                   <div>
                     <div className="text-gray-600">UPI ID (Submitted)</div>
-                    <div className="font-mono font-semibold text-gray-900">{upiId}</div>
+                    <div className="font-mono font-semibold text-gray-900 break-all">{upiId}</div>
                   </div>
                 </div>
                 <div className="mt-3 text-xs text-orange-700 bg-orange-50 p-2 rounded">
@@ -342,14 +342,14 @@ export default function ConfirmPage({
               </div>
 
               {/* Benefits */}
-              <div className="mt-6 bg-gray-50 rounded-lg p-4">
-                <h3 className="text-sm font-semibold text-gray-900 mb-2">Expected Benefits (Subject to Confirmation)</h3>
-                <p className="text-sm text-gray-700">{option.benefits}</p>
+              <div className="mt-4 sm:mt-6 bg-gray-50 rounded-lg p-3 sm:p-4">
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Expected Benefits (Subject to Confirmation)</h3>
+                <p className="text-xs sm:text-sm text-gray-700">{option.benefits}</p>
               </div>
 
               {/* Important Notice */}
-              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h3 className="text-sm font-semibold text-blue-900 mb-2">📌 Important Legal Disclaimer</h3>
+              <div className="mt-4 sm:mt-6 bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                <h3 className="text-xs sm:text-sm font-semibold text-blue-900 mb-2">📌 Important Legal Disclaimer</h3>
                 <ul className="text-xs text-blue-800 space-y-1.5 leading-relaxed">
                   <li>• <strong>This is NOT a registration confirmation.</strong> This is only a submission acknowledgement.</li>
                   <li>• Your payment and personal details will be verified within 24-48 hours.</li>
@@ -361,21 +361,21 @@ export default function ConfirmPage({
               </div>
 
               {/* Footer */}
-              <div className="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-gray-500">
+              <div className="mt-6 sm:mt-8 pt-3 sm:pt-4 border-t border-gray-200 text-center text-xs text-gray-500">
                 <p>Thank you for registering for Sneha Sourabha - District Conference 2025-26!</p>
                 <p className="mt-1">For queries, contact the organizing committee.</p>
               </div>
             </div>
 
             {/* Download Actions */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-              <button type="button" onClick={downloadPdf} className="vibrant-button px-6 py-3">
+            <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+              <button type="button" onClick={downloadPdf} className="vibrant-button px-6 py-3 w-full sm:w-auto">
                 📄 Download PDF
               </button>
-              <button type="button" onClick={downloadImage} className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-white/90 hover:bg-white/20">
+              <button type="button" onClick={downloadImage} className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-white/90 hover:bg-white/20 w-full sm:w-auto">
                 🖼️ Download Image
               </button>
-              <button type="button" onClick={() => window.print()} className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-white/90 hover:bg-white/20">
+              <button type="button" onClick={() => window.print()} className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-white/90 hover:bg-white/20 w-full sm:w-auto">
                 🖨️ Print Receipt
               </button>
             </div>
