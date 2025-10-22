@@ -69,12 +69,14 @@ export default function Home() {
         {/* Main Hero - Optimized Title Size */}
         <div className="max-w-5xl mx-auto text-center mb-10 sm:mb-16 animate-scale-in">
           {/* Title - Proper Sizing for All Devices */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6 sm:mb-8 leading-tight tracking-tight">
             Sneha Sourabha
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-6 sm:mb-10 tracking-wide">
-            2025-26
-          </h2>
+          
+          {/* Subtitle with Year */}
+          <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-medium mb-8 sm:mb-10">
+            Rotary District Conference 2025-26
+          </p>
           
           {/* Event Details - Clean & Minimal */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
