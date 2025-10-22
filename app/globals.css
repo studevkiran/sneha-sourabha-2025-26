@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Custom Styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-rotary-blue-dark via-rotary-blue to-rotary-blue-light text-gray-800;
+  }
+}
+
+@layer components {
+  .celebration-card {
+    @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 
+    transform transition-all duration-300 hover:scale-105 hover:shadow-rotary-gold/50;
+  }
+  
+  .premium-button {
+    @apply bg-gradient-to-r from-rotary-gold to-rotary-gold-light 
+    text-white font-bold py-4 px-8 rounded-full shadow-lg 
+    hover:shadow-2xl hover:scale-105 transition-all duration-300
+    transform active:scale-95;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
+  }
+}
