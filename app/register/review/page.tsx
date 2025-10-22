@@ -30,20 +30,21 @@ const TYPES: RegOption[] = [
   { key: "patron_sponsor", label: "Patron Sponsor", amount: 100000, benefits: "Admission with spouse + 2 children below 12 years, Food & special Memento, Suite Room at venue (no extra beds)" },
 ];
 
-export default function ReviewPage({
+export default async function ReviewPage({
   searchParams,
 }: {
-  searchParams: { type?: string; name?: string; mobile?: string; email?: string; club?: string; meal?: string; spouseName?: string; children?: string };
+  searchParams: Promise<{ type?: string; name?: string; mobile?: string; email?: string; club?: string; meal?: string; spouseName?: string; children?: string }>;
 }) {
-  const type = (searchParams?.type || "").toString() as RegType | "";
+  const params = await searchParams;
+  const type = (params?.type || "").toString() as RegType | "";
   const option = TYPES.find(t => t.key === type);
-  const name = (searchParams?.name || "").toString();
-  const mobile = (searchParams?.mobile || "").toString();
-  const email = (searchParams?.email || "").toString();
-  const club = (searchParams?.club || "").toString();
-  const meal = (searchParams?.meal || "").toString();
-  const spouseName = (searchParams?.spouseName || "").toString();
-  const children = Number((searchParams?.children || "0").toString()) || 0;
+  const name = (params?.name || "").toString();
+  const mobile = (params?.mobile || "").toString();
+  const email = (params?.email || "").toString();
+  const club = (params?.club || "").toString();
+  const meal = (params?.meal || "").toString();
+  const spouseName = (params?.spouseName || "").toString();
+  const children = Number((params?.children || "0").toString()) || 0;
   const inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
 
   const title = option ? `Review — ${option.label}` : "Review";
