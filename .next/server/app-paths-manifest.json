@@ -1,6 +1,0 @@
-{
-  "/register/details/page": "app/register/details/page.js",
-  "/register/confirm/page": "app/register/confirm/page.js",
-  "/register/type/page": "app/register/type/page.js",
-  "/page": "app/page.js"
-}
