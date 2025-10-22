@@ -231,39 +231,43 @@ export default function ConfirmPage({
             <div ref={receiptRef} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl">
               {/* Header with Logos and Title */}
               <div className="border-b-2 border-gray-800 pb-4 sm:pb-6 mb-4 sm:mb-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-4">
-                  <div className="flex items-center gap-2 sm:gap-4">
-                    {/* District Logo */}
-                    <Image 
-                      src="/logos/rotaract-3181-logo.png" 
-                      alt="Rotaract District 3181" 
-                      width={60} 
-                      height={60}
-                      className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
-                    />
-                    {/* Event Logo */}
-                    <Image 
-                      src="/logos/sneha-sourabha-logo.jpeg" 
-                      alt="Sneha Sourabha" 
-                      width={60} 
-                      height={60}
-                      className="object-contain rounded-lg w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
-                    />
-                    <div>
-                      <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">Sneha Sourabha</h1>
-                      <p className="text-xs sm:text-sm text-gray-600">District Conference 2025-26</p>
+                {/* Top section: Logos with Title in between */}
+                <div className="flex items-center justify-center gap-3 sm:gap-6 mb-4">
+                  {/* District Logo */}
+                  <Image 
+                    src="/logos/rotaract-3181-logo.png" 
+                    alt="Rotaract District 3181" 
+                    width={80} 
+                    height={80}
+                    className="object-contain w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                  />
+                  
+                  {/* Title in Center */}
+                  <div className="text-center">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">Sneha Sourabha</h1>
+                    <p className="text-xs sm:text-sm text-gray-600">District Conference 2025-26</p>
+                  </div>
+                  
+                  {/* Event Logo */}
+                  <Image 
+                    src="/logos/sneha-sourabha-logo.jpeg" 
+                    alt="Sneha Sourabha" 
+                    width={80} 
+                    height={80}
+                    className="object-contain rounded-lg w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                  />
+                </div>
+                
+                {/* Bottom section: Receipt info */}
+                <div className="text-center text-xs sm:text-sm text-gray-600">
+                  {registrationNumber && (
+                    <div className="mb-2">
+                      <div className="text-xs text-gray-500">Registration Number</div>
+                      <div className="font-mono font-bold text-base sm:text-lg text-gray-900">{registrationNumber}</div>
                     </div>
-                  </div>
-                  <div className="text-left sm:text-right text-xs sm:text-sm text-gray-600 w-full sm:w-auto">
-                    {registrationNumber && (
-                      <div className="mb-2">
-                        <div className="text-xs text-gray-500">Registration Number</div>
-                        <div className="font-mono font-bold text-base sm:text-lg text-gray-900">{registrationNumber}</div>
-                      </div>
-                    )}
-                    <div className="break-all sm:break-normal">Receipt ID: <span className="font-mono font-semibold text-gray-900">{txnId}</span></div>
-                    <div className="mt-1">{downloadTime}</div>
-                  </div>
+                  )}
+                  <div>Receipt ID: <span className="font-mono font-semibold text-gray-900">{txnId}</span></div>
+                  <div className="mt-1">{downloadTime}</div>
                 </div>
               </div>
 
