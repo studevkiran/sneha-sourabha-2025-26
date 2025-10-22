@@ -2,119 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* VIBRANT ELEGANT THEME */
+/* DARK LUXURY THEME */
 @layer base {
   html { @apply scroll-smooth; }
 
-  /* Themes: default to vibrant; toggle adds html class */
-  html.theme-vibrant body {
-    @apply text-white antialiased bg-gradient-to-br from-violet-950 via-fuchsia-900 to-emerald-900 min-h-screen;
-  }
-
-  html.theme-luxury body {
+  body {
     @apply bg-black text-white antialiased min-h-screen;
   }
 }
 
 @layer components {
-  /* Theme background visibility toggles */
-  .bg-vibrant { display: block; }
-  .bg-luxury { display: none; }
-  html.theme-luxury .bg-vibrant { display: none; }
-  html.theme-luxury .bg-luxury { display: block; }
-
-  /* Title gradient that adapts per theme */
+  /* Title gradient */
   .title-gradient {
-    /* Vibrant: amber/gold spectrum */
-    background-image: linear-gradient(90deg, #fde68a, #f59e0b, #fbbf24);
+    background-image: linear-gradient(180deg, #e5e7eb, #f3f4f6, #9ca3af);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  html.theme-luxury .title-gradient {
-    background-image: linear-gradient(180deg, #e5e7eb, #f3f4f6, #9ca3af);
-  }
 
-  /* Theme-aware panels */
+  /* Panel borders with subtle gradient */
   .panel-border {
-    background-image: linear-gradient(90deg, rgba(244,114,182,0.4), rgba(139,92,246,0.3), rgba(251,191,36,0.4));
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  html.theme-luxury .panel-border {
     background-image: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-    border-color: rgba(31,41,55,0.6);
+    border: 1px solid rgba(31,41,55,0.6);
   }
 
+  /* Panel surfaces with dark gradient */
   .panel-surface {
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  html.theme-luxury .panel-surface {
     background-image: linear-gradient(135deg, rgba(3,7,18,0.9), rgba(0,0,0,0.88));
-    border-color: rgba(31,41,55,0.6);
+    border: 1px solid rgba(31,41,55,0.6);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), inset 0 -1px 0 rgba(255,255,255,0.03);
   }
 
-  /* Reusable vibrant/elegant UI helpers */
+  /* Cards with dark elegant styling */
   .vibrant-card {
-    @apply bg-gradient-to-br from-gray-900/70 via-black/60 to-gray-950/70 p-6 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-md
-    transition-transform duration-500 ease-out hover:scale-[1.02] hover:shadow-white/10;
+    background-image: linear-gradient(135deg, rgba(17,24,39,0.9), rgba(0,0,0,0.9));
+    border: 1px solid rgba(31,41,55,0.7);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    @apply p-6 rounded-2xl transition-transform duration-500 ease-out hover:scale-[1.02];
   }
 
+  /* Buttons with gold gradient */
   .vibrant-button {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-white
-    bg-black border-2 border-white/20 shadow-lg
-    transition-all duration-300 hover:bg-gray-900 hover:border-white/40 active:scale-95;
+    background-image: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+    color: #000;
+    box-shadow: 0 10px 25px rgba(251,191,36,0.25);
+    @apply relative inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold
+    transition-all duration-300 hover:brightness-110 active:scale-95;
   }
 
+  /* Icon rings with subtle gold tint */
   .vibrant-icon-ring {
-    @apply inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-white/10 to-gray-900/10 ring-1 ring-white/15;
+    background-image: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.1));
+    border: 1px solid rgba(251,191,36,0.25);
+    @apply inline-flex items-center justify-center w-11 h-11 rounded-xl;
   }
 
+  /* Glass effect */
   .glass-effect {
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
   }
 
-  /* Luxury overrides for vibrant helpers */
-  html.theme-luxury .vibrant-card {
-    background-image: linear-gradient(135deg, rgba(17,24,39,0.9), rgba(0,0,0,0.9));
-    border-color: rgba(31,41,55,0.7);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  }
-  html.theme-luxury .vibrant-button {
-    background-image: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
-    color: #000;
-    box-shadow: 0 10px 25px rgba(251,191,36,0.25);
-  }
-  html.theme-luxury .vibrant-icon-ring {
-    background-image: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.1));
-    box-shadow: none;
-    border-color: rgba(251,191,36,0.25);
-  }
-
-  /* Gentle light overlay for luxury dark theme */
+  /* Gentle light overlay for depth */
   .luxury-light {
     background-image:
       linear-gradient(115deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 30%),
       radial-gradient(600px 220px at 50% 12%, rgba(255,255,255,0.07), rgba(255,255,255,0) 70%);
     mix-blend-mode: screen;
   }
-  html.theme-vibrant .luxury-light { display: none; }
 
-  /* Moving sheen animation within elements (dark theme) */
+  /* Moving sheen animation */
   @keyframes sheen {
     0% { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
     20% { opacity: 0.12; }
     50% { opacity: 0.18; }
-    100% { transform: translateX(120%) skewX(-15deg); opacity: 0; }
+    100% { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
   }
-  .has-sheen { position: relative; overflow: hidden; }
+  
+  .has-sheen { 
+    position: relative; 
+    overflow: hidden; 
+  }
+  
   .has-sheen::after {
     content: "";
-    position: absolute; inset: 0; pointer-events: none;
+    position: absolute; 
+    inset: 0; 
+    pointer-events: none;
     background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.18), rgba(255,255,255,0));
-    width: 40%; transform: translateX(-120%) skewX(-15deg);
+    width: 40%; 
+    transform: translateX(-120%) skewX(-15deg);
+    animation: sheen 4s linear infinite;
   }
-  html.theme-luxury .has-sheen::after { animation: sheen 4s linear infinite; }
-  html.theme-vibrant .has-sheen::after { display: none; }
 }
